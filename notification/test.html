@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="rogue.Notification.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="demo"></div>
+<button id="alertar">Mensaje de Alerta</button>
+<button id="confirmar">Mensaje de Confirmación</button>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="rogue.Notification.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#alertar").on("click", mostrarAlerta);
+        $("#confirmar").on("click", mostrarConfirmacion);
+    });
+
+    function mostrarConfirmacion(){
+        $.notification({
+            title : '¿Desea confirmar?',
+            message : 'Este es un mensaje que solicita una confirmación',
+            type : 'confirm',
+            onCancel : function(){console.error("Has cancelado la misión");},
+            onConfirm : function(){console.log("Awww yeah");}
+        });
+    }
+
+    function mostrarAlerta(){
+        $.notification({
+            title : 'Soy una Alerta',
+            message : 'Nada más estoy para dar información sobre una acción',
+            onClose : function(){console.log("Gracias por tu atención");}
+        });
+    }
+</script>
+</body>
+</html>

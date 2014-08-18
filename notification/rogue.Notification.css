@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial';
+}
+
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #666;
+    padding: 2px 20px;
+    cursor: pointer;
+    background: -webkit-linear-gradient(top, #ddd, #ccc);
+}
+
+/*************************************************************************
+
+	NOTIFICATION STYLE
+
+*************************************************************************/
+.notification-wrapper {
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    position: fixed;
+    z-index: 10000;
+
+    overflow: hidden;
+}
+
+.notification-bg {
+    position: absolute;
+    z-index: 10001;
+
+    background-color: #666;
+    opacity: 0.6;
+
+    width: 100%;
+    height: 100%;
+}
+
+.notification-content {
+    position: absolute;
+    z-index: 10002;
+
+    background-color: #FFF;
+    box-shadow: 0px 0px 4px 2px #777;
+
+    border-radius: 3px;
+}
+
+.notification-header {
+    width: 100%;
+    display: inline-block;
+    height: 40px;
+    position: relative;
+    background: -webkit-linear-gradient(top, #1375bd, #005a84);
+}
+
+.notification-header span {
+    text-align: center;
+    display: inline-block;
+
+    padding: 10px 20px;
+    font-weight: bold;
+
+    color: #FFF;
+    font-size: 13px;
+}
+
+.notification-contentBody {
+    display: inline-block;
+    position: relative;
+
+    width: 100%;
+}
+
+.notification-contentMessage {
+    text-align: center;
+    margin-top: 20px;
+
+    font-size: 12px;
+}
+
+.notification-action {
+    margin: 20px 0px 20px 0px;
+    text-align: center;
+}
+
+.notification-action input {
+    margin: 0px 10px;
+}
