@@ -1,29 +1,52 @@
-# README #
+# Rogue JS Framework #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+-- más información próximamente --
 
-### What is this repository for? ###
+### Requerimientos ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+- jQuery 1.11.x o superior
 
-### How do I get set up? ###
+## Notification Component ##
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Genera una ventana de notificación "Tipo Alerta", se puede configurar para generar una notificación de confirmación "Tipo Confirm", donde cada acción puede activar un evento CallBack
 
-### Contribution guidelines ###
+### Uso Básico ###
 
-* Writing tests
-* Code review
-* Other guidelines
+```javascript
+$.notification({
+            title : 'Titulo de la Alerta',
+            message : 'Mensaje con Información de la Alerta',
+        });
+```
 
-### Who do I talk to? ###
+### Opciones ###
 
-* Repo owner or admin
-* Other community or team contact
+| Opción        | Descripción y Parámetros           |
+| ------------- |-------------|
+| title   | `String` - Mensaje que se muestra como titulo del cuadro de notificación |
+| message | `String` - Mensaje con descripción de la notificación      |
+| type    | `alert`  - Tipo del cuadro de notificación con el botón cerrar |
+|         | `confirm` - Incluye los botones de Aceptar y Cancelar|
+| confirmText | `String` - Texto boton Aceptar |
+| cancelText | `String` - Texto boton Cancelar |
+| closeText | `String` - Texto boton Cerrar |
+
+### Callbacks ###
+
+| Tipo        | Ejecución           |
+| ------------- |-------------|
+| onCancel   | Después de presionar el botón Cancelar |
+| onClose    | Después de presionar el botón Cerrar     |
+| onConfirm  | Después de presionar el botón Aceptar     |
+
+#### Ejemplo ####
+
+```javascript
+$.notification({
+            title : '¿Desea confirmar?',
+            message : 'Este es un mensaje que solicita una confirmación',
+            type : 'confirm',
+            onCancel : function(){console.error("Has cancelado la misión");},
+            onConfirm : function(){console.log("Awww yeah");}
+        });
+```
