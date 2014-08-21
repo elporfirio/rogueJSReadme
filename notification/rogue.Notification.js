@@ -36,7 +36,7 @@
 
             //PRIVATE METHODS
             /** Cambia el tamaño para centrar el componente en pantalla */
-            resizeComponent = function () {
+            resizeNotification = function () {
                 var windowWidth = $(window).width(),
                     windowHeight = $(window).height();
                 $('#' + self.settings.id + ' .notification-wrapper, #' + self.settings.id + ' .notification-bg').css({'width': windowWidth, 'height': windowHeight});
@@ -69,7 +69,7 @@
             },
 
             /** Constructor principal */
-            buildComponent = function () {
+            buildNotification = function () {
                 var html = "";
 
                 //HTML del componente
@@ -102,7 +102,7 @@
                 $('body').append(html);
 
                 //RESIZE THE POPUP
-                resizeComponent();
+                resizeNotification();
 
                 $('#' + self.settings.id + ' .btn-cancel').bind('click', function () {
                     cancelAction();
@@ -125,7 +125,7 @@
             self.settings.id = 'notification_' + Math.floor(Math.random() * 10000);
 
             if (self.settings.message !== null) {
-                buildComponent();
+                buildNotification();
             } else {
                 return false;
             }

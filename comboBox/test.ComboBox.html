@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<h2>Ejemplo</h2>
+<h3>Simple</h3>
+<select id="basico"></select>
+
+<h3>Options with translation</h3>
+<select id="basicoTraduccion"></select>
+
+<h3>No Initial Text</h3>
+<select id="basicoVacio"></select>
+
+<h3>Option selected</h3>
+<select id="basicoSeleccionado"></select>
+
+<h3>Ajax Data</h3>
+<select id="ajax"></select>
+
+<h3>Ajax Data custom Index</h3>
+<select id="ajaxIndex"></select>
+
+<h3>Ajax Data custom Index with selected</h3>
+<select id="ajaxIndexSelected"></select>
+
+
+<!--<select id="macroConfDataType" data-name="dataType"></select>-->
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="rogue.ComboBox.js"></script>
+<script>
+    var datos = {
+        "frutas": [
+            {"nombre" : "Banana", "valor" : 10},
+            {"nombre" : "Remolacha", "valor" : 15},
+            {"nombre" : "Guayaba", "valor" : 12},
+        ]
+    };
+
+    var datosTraduccion = {
+        "Banana" : 'Platano',
+        "Remolacha" : 'Betabel',
+        "Guayaba" : 'Guayaba'
+    }
+
+    $(document).ready(function(){
+        $("#basico").comboBox({
+            dataValues: datos.frutas,
+            dataFields: {value : "valor", text : "nombre"}
+        });
+        $("#basicoTraduccion").comboBox({
+            dataValues: datos.frutas,
+            dataFields: {value : "valor", text : "nombre"},
+            translateValues: "datosTraduccion"
+        });
+        $("#basicoVacio").comboBox({
+            dataValues: datos.frutas,
+            dataFields: {value : "valor", text : "nombre"},
+            displayInitialText: false
+        });
+        $("#basicoSeleccionado").comboBox({
+            dataValues: datos.frutas,
+            dataFields: {value : "valor", text : "nombre"},
+            displayInitialText: false,
+            selected: 12
+        });
+        $("#ajax").comboBox({
+            dataFields: {value : "valor", text : "nombre"},
+            dataAjax: {
+                url : "dataGenerator.php"
+            }
+        });
+        $("#ajaxIndex").comboBox({
+            dataFields: {value : "valor", text : "nombre"},
+            dataAjax: {
+                url : "dataGenerator.php"
+            }
+        });
+        $("#ajaxIndexSelected").comboBox({
+            dataFields: {value : "valor", text : "nombre"},
+            dataAjax: {
+                url : "dataGenerator.php?custom=true",
+                index : "sinteticas"
+            },
+            selected : 62
+        });
+
+        var oComboBox = $("#ajaxIndexSelected").comboBox({
+            dataFields: {value : "valor", text : "nombre"},
+            dataAjax: {
+                url : "dataGenerator.php?custom=true",
+                index : "sinteticas"
+            }
+        });
+
+        oComboBox.refresh();
+    });
+</script>
+</body>
+</html>
