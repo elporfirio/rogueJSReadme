@@ -1,0 +1,141 @@
+.dWrapper{
+    display: inline-block;
+    position: relative;
+}
+
+.dHeader{
+    display: block;
+    margin : 10px 5px;
+}
+
+.lDrag{
+    float: left;
+    min-width: 100px;
+    margin-right: 5px;
+    position : relative;
+
+    overflow : hidden;
+}
+.lDragTitle, .rDragTitle{
+    padding: 10px 0px;
+    text-align: center;
+    min-height : 15px;
+}
+.dragContent{
+    overflow-y : auto;
+    overflow-x : hidden;
+}
+.rDrag{
+    float: left;
+    min-width: 100px;
+    margin-left: 5px;
+    position : relative;
+
+    overflow : hidden;
+}
+
+.dDisabled{
+    width: 100%;
+    height: 100%;
+    background-color: #CCC;
+
+    position: absolute;
+    z-index: 1000;
+
+    opacity: 0.6;
+    display: none;
+}
+
+.dItem{
+    min-width: 100px;
+    text-align: center;
+    cursor: pointer;
+    min-height : 15px;
+}
+
+/*ERROR STYLE*/
+.dErrorDrag{
+    border-color:#ee1b1b !important;
+}
+
+.dErrorMessage{
+    display: none;
+    margin : 10px 5px;
+    font-size: 12px;
+    color : #ee1b1b;
+}
+
+/*UTILS*/
+.dClean{
+    clear: both;
+}
+
+.dUnselect{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+[draggable=true] {
+    -khtml-user-drag: element;
+}
+
+/******************************************/
+.dWrapper{
+    font-family: 'Arial';
+    margin-bottom: 5px;
+}
+
+.dHeader{
+    text-shadow : 1px 1px 2px #bbb ;
+    width: 100%;
+    text-align: left;
+
+    font-size: 13px;
+}
+
+.lDrag, .rDrag{
+    width: 200px;
+    border: 1px solid #ddd;
+
+    box-shadow: 0px 0px 12px 1px #ddd;
+}
+
+.rDrag{
+    margin-left: 30px;
+}
+
+.lDragTitle, .rDragTitle{
+    background: -webkit-linear-gradient(top, #1375bd, #005a84);
+    background: -moz-linear-gradient(top, #1375bd, #005a84);
+    background: linear-gradient(top, #1375bd, #005a84);
+    background: -o-linear-gradient(top, #1375bd, #005a84);
+    background: -ms-linear-gradient(top, #1375bd, #005a84);
+
+    font-size: 12px;
+    font-weight: bold;
+    color : #FFF;
+}
+
+.dItem{
+    padding: 4px 0px;
+    font-size: 12px;
+}
+.dItem:hover{
+    background-color: #e3f2fc;
+}
+
+.dContent .active{
+    background-color: #e3f2fc;
+}
+
+.dContent:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="rogue.DragAndDrop.css" rel="stylesheet">
+</head>
+<body>
+<div data-name="groupsAssigned" id="lstUnitGroupsAvalaible"></div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="rogue.DragAndDrop.js"></script>
+<script>
+    var JSONObject = {"lstUnitGroupsAvalaible": [
+        {"alias": "Apple", "description": "Apple", "idFruit": 839 },
+        {"alias": "Orange", "description": "Orange", "idFruit": 840 },
+        {"alias": "Strawberry", "description" : "Strawberry", "idFruit": 841}
+    ]};
+
+    var JSONSelected = {"aventon" : [
+        {"alias": "Apple", "description": "Apple", "idFruit": 839 },
+        {"alias": "Orange", "description": "Orange", "idFruit": 840 }
+    ]};
+
+    var algo = $('#lstUnitGroupsAvalaible').dragdrop({
+        'itemsToShow': 22,
+        'fields': {
+            'text': 'alias',
+            'value': 'idFruit'
+        },
+        'dataValues': JSONObject.lstUnitGroupsAvalaible,
+        'width': '200px',
+        'disabled': false,
+        'selected' : JSONSelected.aventon,
+        'title' : 'no pinches mames',
+        onDragStartItem: function(){console.log("dragStart");},
+        onDragEndItem: function(){console.log("dragEnd");}
+    });
+</script>
+</body>
+</html>

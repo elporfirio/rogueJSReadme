@@ -112,7 +112,7 @@ var datosTraduccion = {
 | refresh | Actualiza los valores del `<select>`. **_requiere las propiedades de `dataAjax`_** |
 | rebuild | Genera los valores del `<select>` a partir de `dataValues`|
 
-_Ejemplo para ajecutar las funciones_
+_Ejemplo para ajecutar los métodos_
 
 ```javascript
 var oComboBox = $("#ajaxIndexSelected").comboBox({
@@ -124,4 +124,30 @@ var oComboBox = $("#ajaxIndexSelected").comboBox({
     });
 
     oComboBox.refresh();
+```
+
+### ComboBox Callbacks ###
+
+| Tipo        | Ejecución           |
+| ------------- |-------------|
+| onBeforeAjaxCall   | Antes de una petición de información AJAX |
+| onAfterAjaxCall    | Después de completar la petición AJAX (incluso si hay un error en la petición) |
+
+### ComboBox Ejemplo ###
+
+```html
+<select id="customSelect"></select>
+```
+
+```javascript
+var oMyCombo = $("#customSelect").comboBox({
+    dataFields: {value : "valor", text : "nombre"},
+    dataAjax: {
+        url : "dataGenerator.php?custom=true",
+        index : "sinteticas"
+    },
+    selected : 62,
+    displayInitialText: true,
+    translateValues: "datosTraduccion"
+});
 ```
